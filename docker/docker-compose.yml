@@ -1,0 +1,64 @@
+version: ""
+services:
+  ubuntumaster:
+    container_name: ubuntu-master
+    image: cfv
+    # command: [ /entrypoint/entrypoint.sh, /PC/server/tomcat, catalina.out ]
+    cpuset: "0,1"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 2G
+    volumes:
+      - type: bind
+        source: /media/yusufaye/T7/@thesis/@work/cfv-project/cfv
+        target: /src/cfv
+    environment:
+      - NODE_NAME=master
+    networks:
+      br_master:
+        ipv4_address: 127.29.0.2
+    ports:
+      - 8081:8081
+  ubuntunode1:
+    container_name: ubuntu-node1
+    image: cfv
+    cpuset: "2,3"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 2G
+    volumes:
+      - type: bind
+        source: /media/yusufaye/T7/@thesis/@work/cfv-project/cfv
+        target: /src/cfv
+    environment:
+      - NODE_NAME=node1
+    networks:
+      br_node1:
+        ipv4_address: 127.29.0.2
+    ports:
+      - 8082:8082
+
+
+networks:
+  br_master:
+    name: br-master
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "127.29.1.0/24"
+  br_node1:
+    name: br-node1
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "127.29.2.0/24"

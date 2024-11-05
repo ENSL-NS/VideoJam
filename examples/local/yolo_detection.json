@@ -1,0 +1,40 @@
+{
+  "nodes": [
+    {
+      "type": "Wrapper",
+      "name": "wrapper(YoloDetection)",
+      "parameters": {
+        "component_name": "YoloDetection",
+        "config": {
+          "data": "data/YOLOv4-tiny",
+          "batch": 15
+        },
+        "batch_size": 15,
+        "match_batch_size": true,
+        "maxsize": 150
+      },
+      "in_ports": [
+        {
+          "local": false,
+          "id": 3480,
+          "local_ip": "0.0.0.0",
+          "local_port": 3480,
+          "marshalling": "pickle",
+          "protocol": "websocket",
+          "maxsize": 0,
+          "async": true
+        }
+      ],
+      "out_ports": [
+        {
+          "local": false,
+          "id": 0,
+          "remote_ip": "localhost",
+          "remote_port": 3470,
+          "marshalling": "pickle",
+          "protocol": "websocket"
+        }
+      ]
+    }
+  ]
+}

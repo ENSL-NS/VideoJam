@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    {
+      "type": "VideoSource",
+      "name": "source",
+      "parameters": {
+        "frame_rate": 30,
+        "source": "data/video.avi",
+        "type": "video",
+        "duration": 6
+      },
+      "in_ports": [],
+      "out_ports": [
+        {
+          "local": false,
+          "id": 3480,
+          "remote_ip": "localhost",
+          "remote_port": 3480,
+          "marshalling": "pickle",
+          "protocol": "websocket"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+numpy
+aiohttp
+aiofiles
+aiocsv
+opencv-python
+psutil
+pyzmq
+pytesseract

@@ -1,0 +1,52 @@
+{
+  "nodes": [
+    {
+      "type": "VideoJam",
+      "name": "videojam(YoloV5Detection)",
+      "parameters": {
+        "w": 1,
+        "round": 10,
+        "forecasting_model": "data/short-term-forecasting",
+        "component_name": "YoloDetection",
+        "config": {
+          "data": "data/YOLOv4-tiny",
+          "batch": 15
+        },
+        "batch_size": 15,
+        "match_batch_size": true,
+        "maxsize": 150
+      },
+      "in_ports": [
+        {
+          "local": false,
+          "id": 3470,
+          "local_ip": "0.0.0.0",
+          "local_port": 3470,
+          "marshalling": "pickle",
+          "protocol": "websocket",
+          "maxsize": 0,
+          "async": true
+        }
+      ],
+      "out_ports": [
+        {
+          "local": false,
+          "id": 0,
+          "remote_ip": "localhost",
+          "remote_port": 3440,
+          "marshalling": "pickle",
+          "protocol": "websocket"
+        },
+        {
+          "local": false,
+          "id": 3460,
+          "remote_ip": "localhost",
+          "remote_port": 3460,
+          "marshalling": "pickle",
+          "protocol": "websocket",
+          "priority_queue": true
+        }
+      ]
+    }
+  ]
+}

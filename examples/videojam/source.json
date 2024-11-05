@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    {
+      "type": "VideoSource",
+      "name": "source",
+      "parameters": {
+        "frame_rate": 30,
+        "source": "data/bdd100k.mov",
+        "type": "video",
+        "duration": 6
+      },
+      "in_ports": [],
+      "out_ports": [
+        {
+          "local": false,
+          "id": 3470,
+          "remote_ip": "localhost",
+          "remote_port": 3470,
+          "marshalling": "pickle",
+          "protocol": "websocket"
+        }
+      ]
+    }
+  ]
+}
